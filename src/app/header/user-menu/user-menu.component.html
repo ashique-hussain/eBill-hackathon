@@ -1,0 +1,15 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-icon matSuffix>arrow_drop_down</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <span>My Profile</span>
+    </button>
+    <button mat-menu-item>
+        <span>Setting</span>
+    </button>
+    <button mat-menu-item (click)="logout($event)">
+        <span>Logout</span>
+    </button>
+</mat-menu>

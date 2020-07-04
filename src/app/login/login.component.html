@@ -1,0 +1,30 @@
+<div class="login">
+    <div class="login-motivation">
+        <img src="assets/save-tree.png" alt="save tree" />
+    </div>
+    <div class="login-form">
+        <span *ngIf="!isOtpSent">
+            <h2 class="login-title">Login</h2>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput placeholder="9876543210" required>
+                <mat-icon matSuffix>phone</mat-icon>
+                <mat-hint>Enter your mobile number to login</mat-hint>
+            </mat-form-field>
+            <div class="submit-button">
+                <button mat-stroked-button (click)="submit($event)" color="primary">Login</button>
+            </div>
+        </span>
+        <div class="submit-otp" *ngIf="isOtpSent">
+            <h2 class="login-title">Login</h2>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Enter OTP</mat-label>
+                <input matInput required>
+                <mat-hint>Enter OTP to login</mat-hint>
+            </mat-form-field>
+            <div class="submit-button">
+                <button mat-stroked-button (click)="logIn($event)" color="primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

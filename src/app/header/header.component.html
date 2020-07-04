@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+        (click)="toggleSideNav()" *ngIf="authService.isLoggedIn()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span style="margin-left: 10px;
+    outline: none;
+    cursor: pointer;" routerLink="/dashboard"><i>e</i>Bill</span>
+    <span class="example-spacer"></span>
+    <app-date-picker *ngIf="authService.isLoggedIn()"></app-date-picker>
+    <app-user-menu *ngIf="authService.isLoggedIn()"></app-user-menu>
+</mat-toolbar>

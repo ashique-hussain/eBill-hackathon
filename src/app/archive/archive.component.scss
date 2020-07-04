@@ -1,0 +1,79 @@
+.dashboard {
+    height: 84%;
+    width: 100%;
+}
+
+mat-sidenav {
+    border-right: 0;
+}
+
+mat-sidenav-content {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sideNav {
+    position: absolute;
+    width: 20%;
+}
+
+.nav-item.active {
+    background-color: #E2E2E2;
+    border: 1px solid transparent;
+    border-radius: 0 25px 25px 0;
+}
+
+.mat-list-item:hover,
+.mat-list-item:focus {
+    border-radius: 0 25px 25px 0;
+}
+
+.nav-item-description {
+    margin-left: 15px;
+}
+
+.main-content {
+    width: 100%;
+    height: 100%;
+}
+
+.my-bills {
+    height: 100%;
+}
+
+.empty-data-container {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    text-align: center;
+}
+
+.data-container {
+    width: 100%;
+    height: 100%;
+    padding: 20px 50px 20px;
+}
+
+.empty-data {
+    margin: auto;
+    width: 50%;
+}
+
+.empty-data h3 {
+    display: inline-block;
+    font-size: 1.80em;
+    margin-top: 0;
+    font-weight: 500;
+}
+
+.archiveIcon {
+    font-size: 100px;
+    color: #80b3ff;
+    margin: 127px 0px 0px 170px;
+}
+
+.archiveText {
+    margin-left: 115px;
+}

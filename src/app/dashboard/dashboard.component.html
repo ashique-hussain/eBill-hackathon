@@ -1,0 +1,54 @@
+<mat-sidenav-container class="dashboard">
+  <mat-sidenav #sideNav class="sideNav" mode="side" [fixedInViewport]="true">
+    <mat-nav-list>
+      <div class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <div id="my-bills" >
+          <a mat-list-item routerLink="/dashboard">
+            <span class="material-icons">home</span>
+            <span class="nav-item-description">My Bills</span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <div id="add-bill" >
+          <a mat-list-item [routerLink]="['/dashboard', {outlets: {'childComponent':['upload'] }}]">
+            <span class="material-icons">cloud_upload</span>
+            <span class="nav-item-description">Upload a Bill</span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <div id="compare" >
+          <a mat-list-item [routerLink]="['/dashboard', {outlets: {'childComponent':['archive'] }}]">
+            <span class="material-icons">archive</span>
+            <span class="nav-item-description">Archive</span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <div id="trash" >
+          <a mat-list-item [routerLink]="['/dashboard', {outlets: {'childComponent':['trash'] }}]">
+            <span class="material-icons">delete_outline</span>
+            <span class="nav-item-description">Trash</span>
+          </a>
+        </div>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="main-content">
+      <div *ngIf="!billData" class="empty-data-container">
+        <div class="empty-data">
+          <div class="bill-image-container">
+            <img src="assets/bill.png" alt="save tree" />
+          </div>
+          <h3> Start Shopping</h3>
+        </div>
+      </div>
+      <div *ngIf="billData" class="data-container">
+        <router-outlet name="childComponent"></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

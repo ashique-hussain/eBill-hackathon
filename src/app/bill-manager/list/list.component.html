@@ -1,0 +1,62 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"
+           matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td style="width: 10%;" mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td style="width: 32%;" mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Created Column -->
+      <ng-container matColumnDef="created_at">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+          Date
+        </th>
+        <td style="width: 22%;" mat-cell *matCellDef="let element">{{element.created_at | date}}</td>
+      </ng-container>
+
+      <!-- Amount Column -->
+      <ng-container matColumnDef="total_amount_paid">
+        <th mat-header-cell *matHeaderCellDef> Total Amount </th>
+        <td style="width: 15%;" mat-cell *matCellDef="let element"> {{element.total_amount_paid}} ₹ </td>
+      </ng-container>
+
+      <!-- Options Column -->
+      <ng-container matColumnDef="options">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-form-field>
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Reliance" #inputName>
+          </mat-form-field>
+        </th>
+        <td style="width: 10%; color: #666 !important;" mat-cell *matCellDef="let element">
+        <a style="color: #666 !important;"[routerLink]="['/dashboard', {outlets: {'childComponent':['bill-details'] }}]">
+          <span *ngIf="element.showOptions" class="material-icons">preview</span>
+        </a>
+        <span style="margin-left:5px" *ngIf="element.showOptions" class="material-icons">delete_outline</span>
+        <span style="margin-left:5px" *ngIf="element.showOptions" class="material-icons">south</span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+          (click)="toggle(row)">
+      </tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the </td>
+      </tr>
+    </table>
+  </div>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+<!--  <mat-paginator [length]="resultsLength" [pageSize]="30"></mat-paginator>-->
+</div>

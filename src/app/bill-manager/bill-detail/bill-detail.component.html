@@ -1,0 +1,107 @@
+<mat-card class="mat-elevation-z0">
+    <h3> Bill Details </h3>
+    <table class="table-width">
+        <tbody>
+            <tr>
+                <td colspan="4">
+                    Bill ID
+                </td>
+                <td colspan="4">
+                    {{ billDetails.billId }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    Invoice Number
+                </td>
+                <td colspan="4">
+                    {{ billDetails.invoiceNumber }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    Order Date
+                </td>
+                <td colspan="4">
+                    {{ billDetails.orderDate }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    Payment Mode
+                </td>
+                <td>
+                    {{ billDetails.paymentMode }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <h4> Vender Details </h4>
+
+    <table class="table-width">
+        <tbody>
+            <tr>
+                <td colspan="4">Vendor ID</td>
+                <td colspan="4">{{ billDetails.vendorDetails.vendorId }}</td>
+            </tr>
+            <tr>
+                <td colspan="4">Vendor Name</td>
+                <td colspan="4">{{ billDetails.vendorDetails.vendorName }}</td>
+            </tr>
+            <tr>
+                <td colspan="4">Vendor Address</td>
+                <td colspan="4">{{ billDetails.vendorDetails.vendorAddress }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="bill-table">
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Product ID</strong>
+                </td>
+                <td>
+                    <strong>Product Name</strong>
+                </td>
+                <td>
+                    <strong>Quantity</strong>
+                </td>
+                <td>
+                    <strong>Rate</strong>
+                </td>
+                <td>
+                    <strong>Discount</strong>
+                </td>
+                <td>
+                    <strong>Amount</strong>
+                </td>
+            </tr>
+            <tr *ngFor="let item of billDetails.products">
+                <td>{{ item.productId }}</td>
+                <td>{{ item.productName }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>&#8377;{{ item.rate}}</td>
+                <td>&#8377;{{ item.discount }}</td>
+                <td>&#8377;{{ item.amount }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <table class="net-bill-pay">
+        <tbody>
+            <tr>
+                <td colspan="4">Total Purchasing</td>
+                <th colspan="4">&#8377;{{ billDetails.totalAmount }}</th>
+            </tr>
+            <tr>
+                <td colspan="4">Total Discount</td>
+                <th colspan="4">&#8377;{{ billDetails.totalDiscount }}</th>
+            </tr>
+            <tr>
+                <td colspan="4"> Total Amount Payable</td>
+                <th colspan="4">&#8377;{{ billDetails.payableAmount }}</th>
+            </tr>
+        </tbody>
+    </table>
+</mat-card>

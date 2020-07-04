@@ -1,0 +1,31 @@
+.login {
+    display: flex;
+    flex-direction: row;
+  height: 84%;
+    padding: 20px;
+}
+.login-motivation {
+    width: 55%;
+}
+.w-100 {
+    width: 100%;
+}
+.login-form {
+  position: absolute;
+  top: 25%;
+  left: 60%;
+  width: 30%;
+}
+.submit-button {
+    float: right;
+    padding-top: 5px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+.login-title {
+  width: 70px;
+  color: #505050;
+}

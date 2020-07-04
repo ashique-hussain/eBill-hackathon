@@ -1,0 +1,9 @@
+<div>
+  <ul class="vendor">
+    <li *ngFor="let vendor of vendorDetails">
+      <span class="badge"> >> </span>
+      <a routerLink="latest-bill">{{ vendor.name }}</a>
+    </li>
+  </ul>
+</div>
+
